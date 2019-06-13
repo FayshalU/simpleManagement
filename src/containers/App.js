@@ -4,6 +4,8 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import Content from '../contents/Content';
 import ViewStudent from '../contents/ViewStudent';
+import { GetAllStudents } from '../actions/GetAllStudents';
+import { GetOneStudent } from '../actions/GetOneStudent';
 import { AddStudent } from '../actions/AddStudent';
 import { DeleteStudent } from '../actions/DeleteStudent';
 import { Edit } from '../actions/Edit';
@@ -14,9 +16,9 @@ import {  } from "./App.css";
 
 class App extends Component {
 
-  handleAddStudent = value => this.props.handleAddStudent(value);
-  handleDeleteStudent = Id => this.props.handleDeleteStudent(Id);
-  handleEditStudent = value => this.props.handleEditStudent(value);
+  // handleAddStudent = value => this.props.handleAddStudent(value);
+  // handleDeleteStudent = Id => this.props.handleDeleteStudent(Id);
+  // handleEditStudent = value => this.props.handleEditStudent(value);
 
   render() {
     return (
@@ -43,7 +45,6 @@ class App extends Component {
         />
       </BrowserRouter>
     );
-    {/* <Content {...this.props} />; */}
   }
 }
 
@@ -54,7 +55,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   handleAddStudent: AddStudent,
   handleDeleteStudent: DeleteStudent,
-  handleEditStudent: Edit
+  handleEditStudent: Edit,
 };
 
 export default connect( mapStateToProps, mapDispatchToProps )( App );
