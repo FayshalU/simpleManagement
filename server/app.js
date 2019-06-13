@@ -49,7 +49,7 @@ app.get('/students/:id', (req, res) => {
     res.json(student);
 })
 
-app.post('/addStudents', (req, res) => { 
+app.post('/students', (req, res) => { 
     console.log('Adding new student');
     // console.log(req.body);
     const id = uuid();

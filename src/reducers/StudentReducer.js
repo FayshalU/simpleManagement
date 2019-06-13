@@ -1,5 +1,3 @@
-import uuid from 'uuid/v1';
-
 
 const INITIAL_STATE = {
     students: []

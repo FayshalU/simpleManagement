@@ -1,9 +1,9 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 
-import { GetAllStudents, AddStudentsToState } from '../actions/GetAllStudents';
-import { AddStudent, AddSuccess } from '../actions/AddStudent';
-import { DeleteStudent, DeleteSuccess } from '../actions/DeleteStudent';
-import { Edit, EditSuccess } from '../actions/Edit';
+import { AddStudentsToState } from '../actions/GetAllStudents';
+import { AddSuccess } from '../actions/AddStudent';
+import { DeleteSuccess } from '../actions/DeleteStudent';
+import { EditSuccess } from '../actions/Edit';
 
 const fetchRequest = (url, method, body) => {
     // console.log(body);
@@ -55,7 +55,7 @@ function* addNewStudent(action) {
     // formData.append('email', action.payload.email); 
 
     try {
-       const students = yield call(postRequest, 'http://localhost:4000/addStudents', action.payload);
+       const students = yield call(postRequest, 'http://localhost:4000/students', action.payload);
        console.log(students);
        yield put(AddSuccess(students));
     } catch (e) {
@@ -87,7 +87,7 @@ function* editStudent(action) {
 function* studentSaga(){
     yield takeEvery('GET_ALL', fetchStudents);
     yield takeEvery('ADD_STUDENT', addNewStudent);
-    yield takeEvery(DeleteStudent().type, deleteStudent);
+    yield takeEvery('DELETE_STUDENT', deleteStudent);
     yield takeEvery('EDIT_STUDENT', editStudent);
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import { GetAllStudents } from '../actions/GetAllStudents';
 import Form from './Form';
 
 class Content extends Component{
@@ -9,7 +9,12 @@ class Content extends Component{
         ev.preventDefault();
         this.props.handleDeleteStudent( ev.target.value);
 
-    };
+    }
+
+    componentDidMount(){
+        this.props.handleDispatch(GetAllStudents);
+        // console.log(this.props);
+    }
 
     render(){
         return (

@@ -16,9 +16,10 @@ import {  } from "./App.css";
 
 class App extends Component {
 
-  // handleAddStudent = value => this.props.handleAddStudent(value);
-  // handleDeleteStudent = Id => this.props.handleDeleteStudent(Id);
-  // handleEditStudent = value => this.props.handleEditStudent(value);
+  componentDidMount(){
+    // this.props.dispatch(GetAllStudents());
+    console.log(this.props);
+  }
 
   render() {
     return (

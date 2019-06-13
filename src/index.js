@@ -5,20 +5,20 @@ import './index.css';
 import App from './containers/App.js';
 import * as serviceWorker from './serviceWorker';
 
-import { GetAllStudents } from './actions/GetAllStudents';
-
 import configureStore from './store';
 
 const store = configureStore();
 window.store = store;
 
+function handleDispatch(action, data){
+    store.dispatch(action(data));
+}
+
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <App handleDispatch={handleDispatch} />
     </Provider>,
     document.getElementById('root')
 );
-
-store.dispatch(GetAllStudents());
   
 serviceWorker.unregister();
